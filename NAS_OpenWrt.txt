@@ -1,0 +1,36 @@
+1, 插入sata硬盘到usb
+2，open-wrt自动识别并自动挂载
+------------------
+sudo fdisk -l
+    查看磁盤分區
+df -h
+    查看挂载情况
+mkdir /home/pi/Seagate
+    创建挂载目标文件夹
+sudo mkfs.ext4 /dev/sdb1
+    格式化目标磁盘
+
+# sudo fsck -y /dev/sdb1
+   修復指定磁盘
+sudo mount /dev/sdb1 /home/pi/Seagate
+    挂载磁盘到目标文件夹
+sudo echo '/dev/sdb1 /home/pi/Seagate ext4 defaults 0 0' >> /etc/fstab
+    编辑开机自启动顺序和配置
+遇到问题时，repair mode下修改/etc/fstab,然後重啟
+----------------------------------------
+
+3，进入Open-Wrt-系统-挂载点-添加，确认
+4，网络储存-网络共享
+软件       目录.        允许用户       只读       可浏览    允许匿名用户。  文件权限码    目录权限
+Seagate   /Seagate    root          留空      打勾       打勾        0777          0777
+编辑模版：invalid user = root前面加上# 使之失效
+
+5，ssh root@192.168.31.253
+   密码：password
+6，smbpasswd -a root
+   赋予root一个新的smb密码，输入两次
+7， reboot
+
+苹果自动发现，也可访达smb://192.168.31.253
+Windows默认不会用root进入，所以要手动打开网络，输入地址//192.168.31.253
+在面板里不能强制root的原因是因为原来进去不是root，所以不能root
