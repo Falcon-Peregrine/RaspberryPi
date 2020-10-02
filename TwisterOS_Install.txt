@@ -1,0 +1,34 @@
+first install Raspberry Pi OS into SD card(Etcher Flash)
+
+open SD card with MAC, and touch /Volumes/boot/ssh
+
+
+boot from SD card
+
+in Mac, ssh pi@192.168.31.xx(reviewed in the main router)
+
+
+
+
+# Update and reboot
+sudo apt-get update
+sudo apt-get upgrade -y
+sudo rpi-update 
+sudo reboot
+
+# Install eeprom
+sudo apt install rpi-eeprom -y
+
+# UPDATED: replace "critical" with "stable"
+sudo sed -i 's/critical/stable/g' /etc/default/rpi-eeprom-update
+
+sudo rpi-eeprom-update -d -f /lib/firmware/raspberrypi/bootloader/beta/pieeprom-2020-07-31.bin
+
+
+vcgencmd bootloader_version 
+vcgencmd bootloader_config
+    to review the version and config 
+
+
+Flash a TwisterOS to the SSD Drive
+take out the SD card and plug in the SSD Drive and boot the Pi

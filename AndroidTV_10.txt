@@ -1,0 +1,56 @@
+nexus-tools github：
+https://github.com/corbindavenport/nexus-tools
+
+bash <(curl -s https://raw.githubusercontent.com/corbindavenport/nexus-tools/master/install.sh)
+------------------------------------------
+get the ATV 10 image on to sd card
+https://konstakang.com/devices/rpi4/LineageOS17.1-ATV/
+get recovery2boot.zip to usb
+https://androidfilehost.com/?fid=8889791610682901035
+get open_gapps to usb
+sourceforge.net/projects/opengapps/files/arm/20200709/open_gapps-arm-10.0-tvstock-20200709.zip/download
+------------------------------------------
+1, use RaspberryPi Imager to erase and flash the Android TV 10 zip file
+2, insert to the Rpi4, use the first hdmi dock
+3, Settings-Device Preference-About-Build-Click on several times to enable develop mode
+4, Develop Options-Click Root Access, Local Terminal, USB Debugging
+5, Open Apps-Terminal
+   su
+   rpi4-recovery.sh
+   reboot
+6, Swipe to allow modification
+   Mount-Choose All
+   Install-Select Storage-USB-OTG
+7, Choose open_gapps.zip and Swipe to Confirm flash-Wipe Dalvik
+8, Choose recovery2boot.zip and Swipe to Confirm, then Choose Reboot-System
+
+
+
+5, Find out the device IP at Settings-Device Preferences-About-Status-IP address
+6，In terminal:
+   adb connect 192.168.31.xx
+6, adb shell settings put global ntp_server ntp1.aliyun.com
+7, Device Preference-about-reboot
+
+
+调整时间备用地址
+dns1.synet.edu.cn
+news.neu.edu.cn
+dns.sjtu.edu.cm
+dns2.synet.edu.cn
+ntp.glnet.edu.cn
+ntp1.aliyun.com
+ntp2.aliyun.com
+ntp3.aliyun.com
+ntp4.aliyun.com
+ntp5.aliyun.com
+ntp6.aliyun.com
+ntp7.aliyun.com
+
+
+
+---------------
+In Downloader, input:
+http://browser.aftvnews.com
+Automatically install the plugin
+Type in google and search aptoide TV and install automatically
