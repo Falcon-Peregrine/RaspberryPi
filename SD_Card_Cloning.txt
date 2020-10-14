@@ -1,0 +1,10 @@
+brew install coreutils
+
+
+diskutil list
+sudo diskutil unmountDisk /dev/disk4
+sudo gdd if=/dev/rdisk4 of=sd_backup.dmg status=progress bs=16M
+
+
+
+64gb的sd卡只要文件大小允许，可以gdd到32gb的sd卡

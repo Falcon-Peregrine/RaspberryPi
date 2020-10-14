@@ -10,7 +10,7 @@ https://androidfilehost.com/?fid=8889791610682901035
 get open_gapps to usb
 sourceforge.net/projects/opengapps/files/arm/20200709/open_gapps-arm-10.0-tvstock-20200709.zip/download
 ------------------------------------------
-1, use RaspberryPi Imager to erase and flash the Android TV 10 zip file
+1, use RaspberryPi Imager to erase and flash the Android TV 10 zip file. then copy recovery2boot open_gapps into usb（格式化用磁盤工具ms-dos fat32，主開機紀錄）
 2, insert to the Rpi4, use the first hdmi dock
 3, Settings-Device Preference-About-Build-Click on several times to enable develop mode
 4, Develop Options-Click Root Access, Local Terminal, USB Debugging
@@ -30,6 +30,10 @@ sourceforge.net/projects/opengapps/files/arm/20200709/open_gapps-arm-10.0-tvstoc
 6，In terminal:
    adb connect 192.168.31.xx
 6, adb shell settings put global ntp_server ntp1.aliyun.com
+
+7, adb install /Volumes/Share/Coding/RaspberryPi/Apps/v2rayNG_v1.0.0_apkpure.com.apk
+8, adb install /Volumes/Share/Coding/RaspberryPi/Apps/\[盒子\]星火2013.apk
+
 7, Device Preference-about-reboot
 
 
